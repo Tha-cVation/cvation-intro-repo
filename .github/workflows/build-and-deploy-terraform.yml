@@ -1,4 +1,5 @@
-name: Run Azure Login with OIDC
+name: Build and deploy Terraform to Azure
+
 on: [push]
 
 permissions:
@@ -15,7 +16,24 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: 'Run az commands'
-        run: |
-          az account show
-          az group list
+      - name: 'Check out code'
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+    
+      - name: 'Set up Terraform'
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd #v3.1.2
+
+      - name: 'Terraform Format'
+        id: fmt 
+        run: terraform fmt -check 
+
+      - name: 'Terraform Init'
+        id: init
+        run: terraform init
+
+      - name: 'Terraform Validate'
+        id: validate
+        run: terraform validate
+
+      - name: 'Terraform Plan' 
+        id: plan
+        run: terraform plan -out=tfplan
