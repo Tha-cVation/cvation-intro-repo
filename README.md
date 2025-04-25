@@ -12,3 +12,5 @@ The repo should end up containing:
 Further expansion of the project should be 
 - Add dummy project to the docker container 
 - Deploy dummy project to Azure 
+- []  Enable DependaBot 
+- Enable other security measures 
