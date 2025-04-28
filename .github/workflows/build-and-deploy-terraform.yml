@@ -19,6 +19,8 @@ permissions:
   contents: read
 jobs:
   build-and-deploy:
+    env: 
+      backend_config: config.azurerm.tfbackend
     runs-on: 
       ubuntu-latest
     steps:
@@ -34,7 +36,7 @@ jobs:
     
       - uses: cschleiden/replace-tokens@4d5a042c84c3568b3858b7af9394923d2d5195c9 #v1.3.0
         with: 
-          files: 'backend.conf'
+          files: '${{ env.backend_config}}'
         env: 
           azure_client_id: ${{ env.AZURE_CLIENT_ID }}
           azure_client_secret: ${{ env.AZURE_CLIENT_SECRET }}
@@ -49,7 +51,7 @@ jobs:
           terraform fmt -check 
 
       - name: 'Terraform Init'
-        run: terraform init -var-file="variables.tf" -backend-config="backend.conf" 
+        run: terraform init -var-file="variables.tf" -backend-config="${{ env.backend_config}}" 
 
       - name: 'Terraform Validate'
         run: terraform validate
