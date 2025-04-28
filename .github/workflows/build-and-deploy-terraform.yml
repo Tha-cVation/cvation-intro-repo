@@ -46,6 +46,9 @@ jobs:
       - name: 'Set up Terraform'
         uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd #v3.1.2
 
+      - name: 'Print backend config'
+        run: cat ${{ env.backend_config }}
+        
       - name: 'Terraform Format'
         run: | 
           terraform fmt -check 
