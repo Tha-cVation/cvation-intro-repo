@@ -41,14 +41,11 @@ jobs:
           azure_client_id: ${{ env.AZURE_CLIENT_ID }}
           azure_client_secret: ${{ env.AZURE_CLIENT_SECRET }}
           azure_tenant_id: ${{ env.AZURE_TENANT_ID }}
-          azure_subsciption_id: ${{ env.AZURE_SUBSCRIPTION_ID }}
+          azure_subscription_id: ${{ env.AZURE_SUBSCRIPTION_ID }}
 
       - name: 'Set up Terraform'
         uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd #v3.1.2
 
-      - name: 'Print backend config'
-        run: cat ${{ env.backend_config }}
-        
       - name: 'Terraform Format'
         run: | 
           terraform fmt -check 
