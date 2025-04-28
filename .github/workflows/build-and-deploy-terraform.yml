@@ -15,10 +15,10 @@ permissions:
 jobs:
   build-and-deploy:
     env: 
-      AZURE-CLIENT-ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET}}
-      AZURE-TENANT-ID: ${{ secrets.AZURE_TENANT_ID }}
-      AZURE-SUBSCRIPTION-ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
     runs-on: ubuntu-latest
     steps:
