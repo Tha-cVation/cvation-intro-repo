@@ -6,20 +6,10 @@ terraform {
       version = "~> 3.0"
     }
   }
+ 
   backend "azurerm" {
-    storage_account_name = var.azure_storage_account_name
-    container_name       = var.azure_container_name
-    key                  = var.azure_key
-    resource_group_name  = var.azure_resouce_group_name
-    subscription_id      = var.azure_subscription_id
-    client_id            = var.azure_client_id
-    client_secret        = var.azure_client_secret
-    tenant_id            = var.azure_tenant_id
   }
 }
-
-
-
 
 provider "azurerm" {
   features {}
