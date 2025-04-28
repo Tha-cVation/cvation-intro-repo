@@ -40,6 +40,13 @@ jobs:
       - name: 'Terraform Plan' 
         id: plan
         run: terraform plan -out=tfplan
+
+      - name: 'Publish Terraform Plan'
+        id: publish 
+        uses: actions/upload-artifact@v1
+        with:
+          name: tfplan 
+          path: ./main.tfplan
       
       - name: 'Terraform Apply'
         id: apply
