@@ -46,12 +46,10 @@ jobs:
 
       - name: 'Terraform Format'
         run: | 
-          echo main.tf 
-          echo backend.conf 
           terraform fmt -check 
 
       - name: 'Terraform Init'
-        run: terraform init -var-file="variables.tf" -backend-config="backend.conf" -auto-approve 
+        run: terraform init -var-file="variables.tf" -backend-config="backend.conf" 
 
       - name: 'Terraform Validate'
         run: terraform validate
