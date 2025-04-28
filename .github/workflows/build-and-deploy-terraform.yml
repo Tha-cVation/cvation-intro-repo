@@ -24,6 +24,10 @@ jobs:
     steps:
       - name: 'Az CLI login'
         uses: azure/login@a457da9ea143d694b1b9c7c869ebb04ebe844ef5 #v2.3.0
+        with: 
+          client-id: AZURE_CLIENT_ID
+          tenant-id: AZURE_TENANT_ID
+          subscription-id: AZURE_SUBSCRIPTION_ID
 
       - name: 'Check out code'
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
@@ -31,6 +35,11 @@ jobs:
       - uses: cschleiden/replace-tokens@4d5a042c84c3568b3858b7af9394923d2d5195c9 #v1.3.0
         with: 
           files: 'backend.conf'
+        env: 
+          azure_subsciption_id: AZURE_SUBSCRIPTION_ID
+          azure_client_id: AZURE_CLIENT_ID
+          azure_client_secret: AZURE_CLIENT_SECRET
+          azure_tenant_id: AZURE_TENANT_ID
 
       - name: 'Set up Terraform'
         uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd #v3.1.2
@@ -40,7 +49,6 @@ jobs:
 
       - name: 'Terraform Init'
         run: terraform init -var-file="variables.tf" -backend-config="backend.conf" -auto-approve 
-
       - name: 'Terraform Validate'
         run: terraform validate
 
