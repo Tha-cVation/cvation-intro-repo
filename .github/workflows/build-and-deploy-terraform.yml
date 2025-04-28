@@ -52,6 +52,6 @@ jobs:
           name: tfplan 
           path: ./main.tfplan
       
-      # - name: 'Terraform Apply'
-      #   id: apply
-      #   run: terraform apply -auto-approve tfplan
+      - name: 'Terraform Apply'
+        id: apply
+        run: terraform apply -auto-approve tfplan
