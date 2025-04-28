@@ -21,3 +21,8 @@ variable "azure_web_app_name" {
   type        = string
   default     = "cvation-intro-web-app"
 }
+
+variable "azure_object_id" {
+  description = "Object ID of the Azure AD user"
+  type        = string
+}
