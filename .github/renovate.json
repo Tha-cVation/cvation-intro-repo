@@ -6,8 +6,12 @@
   "assignees": [
     "Tha-cVation"
   ],
-  "automergeMajor": false,
-  "automergeMinor": true,
+  "major": {
+    "automerge": false
+  },
+  "minor": {
+    "automerge": true
+  },
   "separateMinorPatch": false,
   "dependencyDashboard": true,
   "labels": [
