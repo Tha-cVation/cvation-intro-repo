@@ -8,7 +8,7 @@
   ],
   "automergeMajor": false,
   "automergeMinor": true,
-  "seperateMinorPatch": false,
+  "separateMinorPatch": false,
   "dependencyDashboard": true,
   "labels": [
     "Renovate"
