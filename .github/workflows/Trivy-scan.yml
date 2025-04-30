@@ -19,11 +19,7 @@ jobs:
       # Check version (https://github.com/aquasecurity/trivy/releases)
       TRIVY_VERSION: v0.61.0
     steps:
-<<<<<<< HEAD
       - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2 # v.4.2.2
-=======
-      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2 # v.4.2.0
->>>>>>> 9f8ced750cc9c8df4716cf79ef4c9a21628bbdc5
 
       - name: Setup Buildx
         uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2  #v3.10.0
