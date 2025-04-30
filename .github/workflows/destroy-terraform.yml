@@ -5,6 +5,7 @@ on: [workflow_dispatch]
 permissions:
   id-token: write
   contents: read
+  actions: read
 
 jobs: 
   destory-terraform: 
@@ -20,13 +21,9 @@ jobs:
           - name: 'Set up Terraform'
             uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd #v3.1.2
 
-          - name: 'Download Terraform Plan'
-            id: download 
-            uses: actions/download-artifact@v4
-            with:
-              name: tfplan
-              path: ./main.tfplan
+          - name: 'Terraform init'
+            run: terraform init -var-file="variables.tf" -backend-config="backend.conf"
 
           - name: 'Destroy Terraform'
             id: destroy
-            run: terraform destroy -auto-approve tfplan
+            run: terraform destroy -auto-approve ./main.tfplan

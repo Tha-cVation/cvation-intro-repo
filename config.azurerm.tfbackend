@@ -1,0 +1,8 @@
+storage_account_name = "cvationintrostorage"
+container_name       = "cvationintrocontainer"
+key                  = "cvationintrokey"
+resource_group_name  = "cvation-intro-resource-group"
+subscription_id      = "#{azure_subscription_id}#"
+client_id            = "#{azure_client_id}#"
+client_secret        = "#{azure_client_secret}#"
+tenant_id            = "#{azure_tenant_id}#"

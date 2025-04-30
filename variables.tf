@@ -21,3 +21,48 @@ variable "azure_web_app_name" {
   type        = string
   default     = "cvation-intro-web-app"
 }
+
+variable "azure_object_id" {
+  description = "Object ID of the Azure AD user"
+  type        = string
+}
+
+#input to Terraform backend on azure 
+variable "storage_account_name" {
+  description = "Name of the Azure Storage Account"
+  type        = string
+  default     = "cvationintrostorageaccount"
+}
+
+variable "azure_storage_account_name" {
+  description = "Name of the Azure container"
+  type        = string
+  default     = "cvationintrocontainername"
+}
+
+variable "azure_key" {
+  description = "Name of the Azure key"
+  type        = string
+  default     = "cvationintrokey"
+}
+
+variable "azure_subscription_id" {
+  description = "Azure subscription ID - passed from workflow"
+  type        = string
+}
+
+variable "azure_client_id" {
+  description = "Azure client ID - passed from workflow"
+  type        = string
+}
+
+variable "azure_client_secret" {
+  description = "Azure client secret - passed from workflow"
+  type        = string
+}
+
+variable "azure_tenant_id" {
+  description = "Azure tenant ID - passed from workflow"
+  type        = string
+}
+ 
