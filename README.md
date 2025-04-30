@@ -14,3 +14,7 @@ Further expansion of the project should be
 - Deploy dummy project to Azure 
 - Enable DependaBot 
 - Enable other security measures 
+
+# Project status 
+
+[![Super-Linter](https://github.com/Tha-cVation/cvation-intro-repo/actions/workflows/check-linting.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
