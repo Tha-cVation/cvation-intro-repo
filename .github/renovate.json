@@ -5,5 +5,12 @@
   ],
   "assignees": [
     "Tha-cVation"
+  ],
+  "automergeMajor": false,
+  "automergeMinor": true,
+  "seperateMinorPatch": false,
+  "dependencyDashboard": true,
+  "labels": [
+    "Renovate"
   ]
 }
