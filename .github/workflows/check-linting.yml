@@ -1,40 +1,47 @@
-name: Lint 
+name: Lint
 
-on: 
-    push: 
-        branches: 
+on:
+    push:
+        branches:
             - main
     pull_request:
-        branches: 
+        branches:
             - main
 
-permissions: {} 
+permissions: {}
 
-jobs: 
-    build: 
+jobs:
+    build:
         name: lint
         runs-on: ubuntu-latest
 
-        permissions: 
-            contents: read 
-            packages: read 
-            # To report GitHub Actions status checks 
+        permissions:
+            contents: write
+            packages: read
+            # To report GitHub Actions status checks
             statuses: write
 
-        steps: 
-            - name: Check out code 
+        steps:
+            - name: Check out code
               uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
-              with: 
-                fetch-depth: 0 
-            - name: Super-Linter 
-              uses: super-linter/super-linter@4e8a7c2bf106c4c766c816b35ec612638dc9b6b2 #v7.3.0 
-              env: 
+              with:
+                fetch-depth: 0
+
+            - name: Prettify markdown files
+              uses: creyD/prettier_action@v4.3
+              with:
+                prettier_options: --write '**/*.md'
+                only_changed: True
+
+            - name: Super-Linter
+              uses: super-linter/super-linter@4e8a7c2bf106c4c766c816b35ec612638dc9b6b2 #v7.3.0
+              env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Commit and push linting fixes
                 # Run only on:
                 # - Pull requests
                 # - Not on the default branch
-              if: > 
+              if: >
                 github.event_name == 'pull_request' &&
                 github.ref_name != github.event.repository.default_branch
               uses: stefanzweifel/git-auto-commit-action@v5
