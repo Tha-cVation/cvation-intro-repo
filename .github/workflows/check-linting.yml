@@ -30,7 +30,7 @@ jobs:
             - name: Prettify markdown files
               uses: creyD/prettier_action@v4.3
               with:
-                prettier_options: --write '**/*.md'
+                prettier_options: --write '*.md'
                 only_changed: True
 
             - name: Super-Linter
