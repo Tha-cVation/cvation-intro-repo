@@ -3,9 +3,10 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.0"
+      version = "~> 4.0"
     }
   }
+  required_version = "~> 4.0"
 }
 
 provider "azurerm" {
@@ -15,6 +16,7 @@ provider "azurerm" {
 resource "azurerm_resource_group" "resource_group" {
   name     = var.azure_resouce_group_name
   location = var.azure_location
+  lock_level = "CanNotDelete"
 }
 
 resource "azurerm_service_plan" "app_service_plan" {
