@@ -2,18 +2,15 @@ name: test-preset
 
 on: push
 
-permissions:
-    contents: read
-    id-token: write
-
 jobs:
-    print-this-hello-world:
+    print-hello-world:
       uses: Tha-cVation/cvation-intro-preset-repo/.github/workflows/print_this_preset.yml@6875e6d0bba0dcbefb72a039f381427c789435f4
       with:
         PRINT_THIS: "Hello, world"
 
-    print-hello-world:
+    print-done:
       runs-on: ubuntu-latest
+      needs: print-hello-world
       steps:
           - name: Print done
             run: echo "Done!"
