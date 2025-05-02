@@ -7,7 +7,13 @@ permissions:
     id-token: write
 
 jobs:
-    print-string:
-      uses: Tha-cVation/cvation-intro-preset-repo/.github/workflows/print_this_preset.yml@main
+    print-this-hello-world:
+      uses: Tha-cVation/cvation-intro-preset-repo/.github/workflows/print_this_preset.yml@6875e6d0bba0dcbefb72a039f381427c789435f4
       with:
         PRINT_THIS: "Hello, world"
+
+    print-hello-world:
+      runs-on: ubuntu-latest
+      steps:
+          - name: Print done
+            run: echo "Done!"
