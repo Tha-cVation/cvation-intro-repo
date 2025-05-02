@@ -1,0 +1,13 @@
+name: test-preset
+
+on: push
+
+permissions:
+    contents: read
+    id-token: write
+
+jobs:
+    print-string:
+      uses: Tha-cVation/cvation-intro-preset-repo/workflows/print_this_preset.yml@main
+      with:
+        PRINT_THIS: "Hello, world"
