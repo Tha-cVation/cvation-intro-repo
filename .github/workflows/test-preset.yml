@@ -8,6 +8,6 @@ permissions:
 
 jobs:
     print-string:
-      uses: Tha-cVation/cvation-intro-preset-repo/workflows/print_this_preset.yml@main
+      uses: Tha-cVation/cvation-intro-preset-repo/.github/workflows/print_this_preset.yml@main
       with:
         PRINT_THIS: "Hello, world"
