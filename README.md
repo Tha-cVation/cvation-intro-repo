@@ -6,7 +6,7 @@ The repository should end up containing:
 
 - Docker image
 - Terraform creating necessary resources in Azure
-- GitHub actions
+- GitHub Actions
   - Build necessary resources in Azure with Terraform
   - Build and Deploy Docker image to Azure
   - Test Docker image with Trivy and show report in security tab
