@@ -27,12 +27,6 @@ jobs:
               with:
                 fetch-depth: 0
 
-            - name: Prettify markdown files
-              uses: creyD/prettier_action@31355f8eef017f8aeba2e0bc09d8502b13dbbad1 #v4.3.0
-              with:
-                prettier_options: --write './README.md'
-                only_changed: True
-
             - name: Super-Linter
               uses: super-linter/super-linter@4e8a7c2bf106c4c766c816b35ec612638dc9b6b2 #v7.3.0
               env:
