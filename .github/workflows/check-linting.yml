@@ -36,6 +36,7 @@ jobs:
           FIX_TERRAFORM_TFLINT: true
           FIX_MARKDOWN: true
           FIX_NATURAL_LANGUAGE: true
+
       - name: Commit and push linting fixes
         if: >
           github.event_name == 'push_request' &&
@@ -44,5 +45,3 @@ jobs:
         with:
           branch: ${{ github.event.pull_request.head.ref  || github.head_ref  github.ref }}
           commit_message: "fix: auto-fix linter issues"
-          commit_user_name: super-linter
-          commit_user_name: super-linter@super-linter.dev
