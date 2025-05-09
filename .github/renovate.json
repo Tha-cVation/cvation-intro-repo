@@ -11,4 +11,6 @@
   "separateMinorPatch": false,
   "dependencyDashboard": true,
   "labels": ["Renovate"]
+
+
 }
