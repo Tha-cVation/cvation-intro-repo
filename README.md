@@ -1,7 +1,9 @@
 # cVation-intro-repo
+
 a test repository to go through all i have learned through the last couple of weeks.
 
 The repository should end up containing:
+
 - Docker image
 - Terraform creating necessary resources in Azure
 - GitHub Actions
@@ -10,10 +12,12 @@ The repository should end up containing:
   - Test Docker image with Trivy and show report in security tab
 
 Further expansion of the project should be
+
 - Add dummy project to the docker container
 - Deploy dummy project to Azure
 - Enable DependaBot
 - Enable other security measures
 
 ## Repository status
-[![Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE_NAME>/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
+[![Super-Linter](https://github.com/Tha-cVation/cvation-intro-repo/actions/workflows/check-linting/badge.svg)](https://github.com/marketplace/actions/super-linter)
