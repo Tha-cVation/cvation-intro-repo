@@ -6,6 +6,7 @@ terraform {
       version = "~> 3.0"
     }
   }
+  required_version = "~> 1.11.4"
 }
 
 provider "azurerm" {
@@ -15,6 +16,13 @@ provider "azurerm" {
 resource "azurerm_resource_group" "resource_group" {
   name     = var.azure_resouce_group_name
   location = var.azure_location
+}
+
+resource "azurerm_management_lock" "resource-group-lock" {
+  name       = "resource-group-lock"
+  scope      = azurerm_resource_group.resource_group.id
+  lock_level = "CanNotDelete"
+  notes      = "This resource group is read only and cannot be deleted."
 }
 
 resource "azurerm_service_plan" "app_service_plan" {
