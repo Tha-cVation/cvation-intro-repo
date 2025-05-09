@@ -30,6 +30,7 @@ jobs:
         uses: super-linter/super-linter@4e8a7c2bf106c4c766c816b35ec612638dc9b6b2 #v7.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FILTER_REGEX_EXCLUDE: "^main.tf$"
           FIX_YAML_PRETTIER: true
           FIX_MARKDOWN_PRETTIER: true
           FIX_JSON_PRETTIER: true
