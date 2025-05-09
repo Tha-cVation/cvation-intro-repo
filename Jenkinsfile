@@ -1,10 +1,20 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'node:22.15.0-alpine3.21' } }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh 'node --version'
+                sh echo 'Building..'
+            }
+        }
+        stage('test') {
+            steps {
+                sh echo 'Testing..'
+            }
+        }
+        stage('deploy') {
+            steps {
+                sh echo 'Deploying..'
             }
         }
     }
