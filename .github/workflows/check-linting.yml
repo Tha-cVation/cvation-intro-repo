@@ -33,7 +33,6 @@ jobs:
           FIX_YAML_PRETTIER: true
           FIX_MARKDOWN_PRETTIER: true
           FIX_JSON_PRETTIER: true
-          FIX_TERRAFORM_TFLINT: true
           FIX_MARKDOWN: true
           FIX_NATURAL_LANGUAGE: true
 
