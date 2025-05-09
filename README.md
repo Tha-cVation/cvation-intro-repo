@@ -20,4 +20,4 @@ Further expansion of the project should be
 
 ## Repository status
 
-[![Super-Linter](https://github.com/Tha-cVation/cvation-intro-repo/actions/workflows/check-linting/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Super-Linter](https://github.com/Tha-cVation/cvation-intro-repo/actions/workflows/check-linting.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
