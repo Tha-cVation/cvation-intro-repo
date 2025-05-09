@@ -13,6 +13,7 @@ pipeline {
                 sh 'echo Testing..'
             }
         }
+        sh wait
         stage('deploy') {
             steps {
                 sh 'echo Deploying..'
