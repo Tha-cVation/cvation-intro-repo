@@ -26,11 +26,13 @@ resource "azurerm_management_lock" "resource-group-lock" {
 }
 
 resource "azurerm_service_plan" "app_service_plan" {
-  name                = var.azure_app_service_plan_name
-  location            = azurerm_resource_group.resource_group.location
-  resource_group_name = azurerm_resource_group.resource_group.name
-  os_type             = "Linux"
-  sku_name            = "P1v2"
+  name                   = var.azure_app_service_plan_name
+  location               = azurerm_resource_group.resource_group.location
+  resource_group_name    = azurerm_resource_group.resource_group.name
+  os_type                = "Linux"
+  sku_name               = "P1v2"
+  zone_balancing_enabled = false
+  worker_conut           = 1
 }
 
 resource "azurerm_linux_web_app" "web_app" {
