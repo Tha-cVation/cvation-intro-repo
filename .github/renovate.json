@@ -6,18 +6,11 @@
     "automerge": false
   },
 
-
-
-
-   "minor": {
-           "automerge": true
+  "minor": {
+    "automerge": true
   },
 
   "separateMinorPatch": false,
   "dependencyDashboard": true,
   "labels": ["Renovate"]
-
-
-
-
 }
