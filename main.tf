@@ -32,8 +32,7 @@ resource "azurerm_service_plan" "app_service_plan" {
   os_type                = "Linux"
   sku_name               = "P1v2"
   zone_balancing_enabled = true
-  worker_conut           = 2
-  ftps_state = "FtpsOnly"
+  worker_count           = 2
 }
 
 resource "azurerm_linux_web_app" "web_app" {
@@ -42,9 +41,10 @@ resource "azurerm_linux_web_app" "web_app" {
   resource_group_name = azurerm_resource_group.resource_group.name
   service_plan_id     = azurerm_service_plan.app_service_plan.id
   client_cert_enabled = true
-  http_only = true
+  http_only           = true
+  ftps_state          = "FtpsOnly"
   site_config {
-    http2_enabled = true
+    http2_enabled     = true
     health_check_path = "/health"
   }
   auth_settings {
@@ -52,6 +52,5 @@ resource "azurerm_linux_web_app" "web_app" {
   }
   logs {
     detailed_error_messages_enabled = true
-    failed_request_tracing_enabled = true
   }
 }

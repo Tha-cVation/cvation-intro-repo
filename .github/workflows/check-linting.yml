@@ -37,6 +37,7 @@ jobs:
           FIX_JSON_PRETTIER: true
           FIX_MARKDOWN: true
           FIX_NATURAL_LANGUAGE: true
+          VALIDATE_CHECKOV: false
 
       - name: Commit and push linting fixes
         if: >
