@@ -28,19 +28,19 @@ jobs:
 
       - name: "Terraform Format"
         id: fmt
-        run: terraform fmt -check
+        run: terraform -chdir=./Terrraform fmt -check
 
       - name: "Terraform Init"
         id: init
-        run: terraform init
+        run: terraform -chdir=./Terrraform init
 
       - name: "Terraform Validate"
         id: validate
-        run: terraform validate
+        run: terraform -chdir=./Terrraform validate
 
       - name: "Terraform Plan"
         id: plan
-        run: terraform plan -out=tfplan
+        run: terraform -chdir=./Terrraform plan -out=tfplan
 
       # - name: "Publish Terraform Plan"
       #   id: publish
