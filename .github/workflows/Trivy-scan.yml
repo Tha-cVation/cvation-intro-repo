@@ -1,6 +1,9 @@
 name: Trivy Scan
 
 on:
+  push:
+    branches:
+      - add_docker_image
   schedule:
     - cron: "0 2 * * *" # run at 2 AM UTC
 
