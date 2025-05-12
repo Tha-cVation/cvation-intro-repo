@@ -38,9 +38,9 @@ jobs:
         id: validate
         run: terraform -chdir=./Terraform validate
 
-      - name: "Terraform Plan"
-        id: plan
-        run: terraform -chdir=./Terraform plan -out=tfplan
+        # - name: "Terraform Plan"
+        #   id: plan
+        #   run: terraform -chdir=./Terraform plan -out=tfplan
 
       # - name: "Publish Terraform Plan"
       #   id: publish
