@@ -41,7 +41,6 @@ jobs:
           FIX_HTML_PRETTIER: true
           FIX_CSS_PRETTIER: true
           FIX_BASH_PRETTIER: true
-          FIX_DOCKERFILE_HADOLINT: true
           VALIDATE_CHECKOV: false
 
       - name: Commit and push linting fixes
