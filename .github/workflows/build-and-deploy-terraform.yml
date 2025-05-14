@@ -8,6 +8,7 @@ on:
 permissions:
   id-token: write
   contents: read
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -27,19 +28,19 @@ jobs:
 
       - name: "Terraform Format"
         id: fmt
-        run: terraform fmt -check
+        run: terraform -chdir=./Terraform fmt -check
 
       - name: "Terraform Init"
         id: init
-        run: terraform init
+        run: terraform -chdir=./Terraform init
 
       - name: "Terraform Validate"
         id: validate
-        run: terraform validate
+        run: terraform -chdir=./Terraform validate
 
-      - name: "Terraform Plan"
-        id: plan
-        run: terraform plan -out=tfplan
+        # - name: "Terraform Plan"
+        #   id: plan
+        #   run: terraform -chdir=./Terraform plan -out=tfplan
 
       # - name: "Publish Terraform Plan"
       #   id: publish
