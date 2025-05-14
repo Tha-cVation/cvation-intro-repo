@@ -43,7 +43,7 @@ resource "azurerm_linux_web_app" "web_app" {
   client_cert_enabled = true
   http_only           = true
   site_config {
-    http2_enabled     = true
+    http2_enabled = true
   }
   auth_settings {
     enabled = true
