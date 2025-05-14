@@ -42,15 +42,10 @@ resource "azurerm_linux_web_app" "web_app" {
   service_plan_id     = azurerm_service_plan.app_service_plan.id
   client_cert_enabled = true
   http_only           = true
-  ftps_state          = "FtpsOnly"
   site_config {
     http2_enabled     = true
-    health_check_path = "/health"
   }
   auth_settings {
     enabled = true
-  }
-  logs {
-    detailed_error_messages_enabled = true
   }
 }
