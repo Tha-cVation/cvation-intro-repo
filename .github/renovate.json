@@ -5,9 +5,11 @@
   "major": {
     "automerge": false
   },
+
   "minor": {
     "automerge": true
   },
+
   "separateMinorPatch": false,
   "dependencyDashboard": true,
   "labels": ["Renovate"]

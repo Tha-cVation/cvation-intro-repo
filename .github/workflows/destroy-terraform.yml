@@ -6,27 +6,27 @@ permissions:
   id-token: write
   contents: read
 
-jobs: 
-  destory-terraform: 
-      runs-on: ubuntu-latest
-      steps: 
-          - name: 'Az CLI login'
-            uses: azure/login@a457da9ea143d694b1b9c7c869ebb04ebe844ef5 #v2.3.0
-            with:
-              client-id: ${{ secrets.AZURE_CLIENT_ID }}
-              tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-              subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-              
-          - name: 'Set up Terraform'
-            uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd #v3.1.2
+jobs:
+  destory-terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Az CLI login"
+        uses: azure/login@a457da9ea143d694b1b9c7c869ebb04ebe844ef5 #v2.3.0
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-          - name: 'Download Terraform Plan'
-            id: download 
-            uses: actions/download-artifact@v4
-            with:
-              name: tfplan
-              path: ./main.tfplan
+      - name: "Set up Terraform"
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd #v3.1.2
 
-          - name: 'Destroy Terraform'
-            id: destroy
-            run: terraform destroy -auto-approve tfplan
+      - name: "Download Terraform Plan"
+        id: download
+        uses: actions/download-artifact@v4
+        with:
+          name: tfplan
+          path: ./main.tfplan
+
+      - name: "Destroy Terraform"
+        id: destroy
+        run: terraform destroy -auto-approve tfplan

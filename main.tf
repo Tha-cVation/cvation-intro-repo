@@ -1,4 +1,4 @@
-#Configure Terraform providers 
+#Configure Terraform providers
 terraform {
   required_providers {
     azurerm = {
@@ -6,7 +6,7 @@ terraform {
       version = "~> 4.0"
     }
   }
-  required_version = "~> 1.11.4"
+  required_version = "~> 1.12.0"
 }
 
 provider "azurerm" {
@@ -18,19 +18,21 @@ resource "azurerm_resource_group" "resource_group" {
   location = var.azure_location
 }
 
-resource "azurerm_management_lock" "resource-group-level" {
-  name       = "resource-group-level"
+resource "azurerm_management_lock" "resource-group-lock" {
+  name       = "resource-group-lock"
   scope      = azurerm_resource_group.resource_group.id
-  lock_level = "ReadOnly"
-  notes      = "This resource group is read-only and cannot be modified or deleted."
+  lock_level = "CanNotDelete"
+  notes      = "This resource group is read only and cannot be deleted."
 }
 
 resource "azurerm_service_plan" "app_service_plan" {
-  name                = var.azure_app_service_plan_name
-  location            = azurerm_resource_group.resource_group.location
-  resource_group_name = azurerm_resource_group.resource_group.name
-  os_type             = "Linux"
-  sku_name            = "P1v2"
+  name                   = var.azure_app_service_plan_name
+  location               = azurerm_resource_group.resource_group.location
+  resource_group_name    = azurerm_resource_group.resource_group.name
+  os_type                = "Linux"
+  sku_name               = "P1v2"
+  zone_balancing_enabled = true
+  worker_count           = 2
 }
 
 resource "azurerm_linux_web_app" "web_app" {
@@ -38,6 +40,12 @@ resource "azurerm_linux_web_app" "web_app" {
   location            = azurerm_resource_group.resource_group.location
   resource_group_name = azurerm_resource_group.resource_group.name
   service_plan_id     = azurerm_service_plan.app_service_plan.id
-
-  site_config {}
+  client_cert_enabled = true
+  http_only           = true
+  site_config {
+    http2_enabled = true
+  }
+  auth_settings {
+    enabled = true
+  }
 }

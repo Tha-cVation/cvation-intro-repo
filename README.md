@@ -1,6 +1,6 @@
-# cVation-intro-repository
+# cVation-intro-repo
 
-A test repository to go through all i have learned through the last couple of weeks.
+a test repository to go through all i have learned through the last couple of weeks.
 
 The repository should end up containing:
 
@@ -18,6 +18,6 @@ Further expansion of the project should be
 - Enable DependaBot
 - Enable other security measures
 
-## Project status
+## Repository status
 
-[![Super-Linter](https://github.com/Tha-cVation/cvation-intro-repository/actions/workflows/check-linting.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Super-Linter](https://github.com/Tha-cVation/cvation-intro-repo/actions/workflows/check-linting.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
