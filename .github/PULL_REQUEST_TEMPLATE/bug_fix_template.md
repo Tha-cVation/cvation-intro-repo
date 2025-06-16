@@ -1,4 +1,4 @@
-# Bug fix pull request
+# Bugfix pull request
 
 You're currently performing a pull request
 
