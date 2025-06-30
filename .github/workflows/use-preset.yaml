@@ -1,15 +1,19 @@
 name: Use preset from cvation-intro-preset-repo
 
-on:
-    push
+on: push
 
 jobs:
-    print-before:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "This job runs before the preset job"
+  print-before:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job runs before the preset job"
 
-    use-preset:
-        uses: Tha-cVation/cvation-intro-preset-repo/print_this_preset.ym@main
-        with:
-            PRINT_THIS: "Hello from the preset job!"
+  use-preset:
+    uses: Tha-cVation/cvation-intro-preset-repo/.github/workflows/print_this_preset.yml@main
+    with:
+      PRINT_THIS: "Hello from the preset job!"
+
+  print-after:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job runs before the preset job"
