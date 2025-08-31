@@ -34,9 +34,13 @@ jobs:
           IGNORE_GITIGNORED_FILES: true
           FIX_YAML_PRETTIER: true
           FIX_MARKDOWN_PRETTIER: true
-          FIX_JSON_PRETTIER: true
           FIX_MARKDOWN: true
+          FIX_JSON_PRETTIER: true
           FIX_NATURAL_LANGUAGE: true
+          FIX_JAVASCRIPT_PRETTIER: true
+          FIX_HTML_PRETTIER: true
+          FIX_CSS_PRETTIER: true
+          FIX_BASH_PRETTIER: true
           VALIDATE_CHECKOV: false
 
       - name: Commit and push linting fixes
